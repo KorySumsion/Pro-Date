@@ -1,0 +1,35 @@
+.containerbod {
+	padding-top: 1em;
+}
+.navbar {
+	height: 7em;
+	color: #fff;
+
+}
+.brand {
+	font-size: 6em;
+}
+
+.angular-google-map-container { 
+	height: 600px;
+	width: 750px;
+	float: right;
+	margin-right: 17px;
+}
+.tool {
+	font-size: 4em;
+}
+body {
+	background-color: #726f6f;
+}
+.btn-lg {
+	border-radius: 25px;
+}
+.panel-title {
+	font-size: 32px;
+}
+.btn-md {
+	border-radius: 25px;
+	width: 50%;
+	margin: 0 auto;
+}

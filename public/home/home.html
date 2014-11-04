@@ -1,0 +1,54 @@
+<!-- <ui-gmap-google-map center="map.center" zoom="map.zoom">
+
+</ui-gmap-google-map> -->
+<div class="container-fluid">
+	<div class="col-md-5">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title text-center">FILTER YOUR PRO-DATE</h4>
+			</div>
+			<div class="panel-body text-center">
+				<div ng-show="indoorFilter">
+					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="indoor()">Indoor</button>
+
+					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showIndoorActive">Indoor Active</button>
+
+					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showIndoorWalk">Indoor Walk-Talk-sit</button>
+				</div>
+				<div ng-show="outdoorFilter">
+					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="outdoor()">Outdoor</button>
+
+					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showOutdoorActive">Outdoor Active</button>
+
+					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showOutdoorWalk">Outdoor Walk-Talk-sit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="col-md-6 col-md-offset-1" id="map_canvas" ng-controller="homeController">
+
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+
+    	<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+   		</ui-gmap-marker>
+
+    	<ui-gmap-markers models="dates" coords="'self'" icon="'icon'" click="onClick">
+
+    		 <ui-gmap-windows closeClick="closeClick()">
+                <div ng-non-bindable>{{id}}{{description}}{{price}}</div>
+            </ui-gmap-windows>
+
+        </ui-gmap-markers>
+
+    	<!-- <markers models="dates" coords="'coords'" idKey="'id'"></markers>
+    	<marker ng-repeat="date in dates" coords="coords"></marker> -->
+        <!-- <ui-gmap-drawing-manager options="drawingManagerOptions" control="drawingManagerControl">
+        </ui-gmap-drawing-manager> -->
+
+    </ui-gmap-google-map>
+    
+</div>
+</div>
+
+
