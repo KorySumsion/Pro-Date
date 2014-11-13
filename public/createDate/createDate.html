@@ -1,13 +1,62 @@
-<div class="container">
-	<form class="form-horizontal" role="form" ng-submit="addDate()">
-		<input ng-model="date.id" placeholder="id">
-		<input ng-model="date.latitude" placeholder="latitude">
-		<input ng-model="date.longitude" placeholder="longitude">	
-		<input ng-model="date.show" placeholder="show">
-		<input ng-model="date.description" placeholder="description">
-		<input ng-model="date.price" placeholder="price">
-		<button class="button">Create Date √</button>
+<div class="container-fluid">
+<div class="col-md-6 col-md-offset-3">
+	<form role="form" ng-submit="addDate()">
+		<div class="form-group">
+			<label>ID</label>
+			<input class="form-control" ng-model="date.id" placeholder="id">
+		</div>
+		<div class="form-group">
+			<label>Latitude</label>
+			<input class="form-control" ng-model="date.latitude" placeholder="latitude">
+		</div>
+		<div class="form-group">
+			<label>Longitude</label>
+			<input class="form-control" ng-model="date.longitude" placeholder="longitude">
+		</div>
+		<div class="form-group">
+			<label>Show</label>	
+			<input class="form-control" ng-model="date.show" placeholder="show">
+		</div>
+		<div class="form-group">
+			<label>Description</label>
+			<input class="form-control" ng-model="date.description" placeholder="description">
+		</div>
+		<div class="form-group">
+			<label>Price</label>
+			<input class="form-control" ng-model="date.price" placeholder="price">
+		</div>
+		<div class="checkbox">
+	    	<label>
+	      		<input type="checkbox" ng-model="date.indoor"> <p>Indoor</p>
+	      		<input type="checkbox" ng-model="date.outdoor"> <p>Outdoor</p>
+	      		<input type="checkbox" ng-model="date.indoorActive"> <p>Indoor Active</p>
+	      		<input type="checkbox" ng-model="date.outdoorActive"> <p>Outdoor Active</p>
+	      		<input type="checkbox" ng-model="date.indoorWalk"> <p>Indoor lazy</p>
+	      		<input type="checkbox" ng-model="date.outdoorWalk"> <p>Outdoor Lazy</p>
+	    	</label>
+	  	</div>
+	  	<div class="form-group">
+			<label>Create Date</label>
+			<button class="button">Create Date √</button>
+		</div>
 	</form>
-	<button class="button" ng-click="getDates()">Show all Dates</button>
-
+	
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

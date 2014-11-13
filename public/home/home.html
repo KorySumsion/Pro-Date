@@ -1,54 +1,85 @@
 <!-- <ui-gmap-google-map center="map.center" zoom="map.zoom">
 
 </ui-gmap-google-map> -->
-<div class="container-fluid">
+<div class="container-fluid" ng-init="getAll()">
 	<div class="col-md-5">
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title text-center">FILTER YOUR PRO-DATE</h4>
+			<div class="panel-heading" style="background-color: #726f6f; border-bottom: none;">
+				<h4  class="panel-title text-center">FILTER YOUR PRO-DATE</h4>
 			</div>
-			<div class="panel-body text-center">
+			<div class="panel-body text-center" style="background-color: #726f6f">
+				<button type="button" class="btn btn-default btn-lg btn-block" ng-click="getAll()">All Dates</button>
 				<div ng-show="indoorFilter">
-					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="indoor()">Indoor</button>
+					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="indoor()">Indoor Dates</button>
 
-					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showIndoorActive">Indoor Active</button>
+				<!-- 	<button type="button" class="btn btn-default btn-md btn-block" ng-show="showIndoorActive">Indoor Active Dates</button>
 
-					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showIndoorWalk">Indoor Walk-Talk-sit</button>
+					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showIndoorWalk">Indoor Cozy Dates</button> -->
 				</div>
 				<div ng-show="outdoorFilter">
-					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="outdoor()">Outdoor</button>
+					<button type="button" class="btn btn-default btn-lg btn-block" ng-click="outdoor()">Outdoor Dates</button>
 
-					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showOutdoorActive">Outdoor Active</button>
+				<!-- 	<button type="button" class="btn btn-default btn-md btn-block" ng-show="showOutdoorActive">Outdoor Active Dates</button>
 
-					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showOutdoorWalk">Outdoor Walk-Talk-sit</button>
+					<button type="button" class="btn btn-default btn-md btn-block" ng-show="showOutdoorWalk">Outdoor Chill Dates</button> -->
 				</div>
 			</div>
+			</div>
+
+		<div class="panel panel-default " ng-show="spefDate" style="width: 90%; margin-left: 27.5px; box-shadow: 50px 50px 50px 5px rgb(57, 58, 56)">
+			<div class="panel-heading" style="background-color: black; height: 4.5em;">
+				<h4 class="panel-title text-center" style="color: white">{{id}}</h4>
+			</div>
+			<div class="panel-body text-center" style="background-image: url(http://i.imgur.com/PaPHrcR.png); height: 20em;">
+				
+				<p style="margin-top: 150px; background-color: rgba(0, 0, 0, 0.5); color: white; font-size: 1.5em; text-align: left; border-radius: 3px;">Details:<br>{{description}}</p>
+				<div>{{price}}</div>
+			</div>
 		</div>
+			
+		<div class="panel panel-default " ng-show="defDate" style="width: 90%; margin-left: 27.5px; box-shadow: 50px 50px 50px 5px rgb(57, 58, 56)">
+			<div class="panel-heading" style="background-color: black; height: 4.5em;">
+				<h4 class="panel-title text-center" style="color: white">Click A Marker</h4>
+			</div>
+			<div class="panel-body text-center" style="background-image: url(http://i.imgur.com/PaPHrcR.png); height: 20em;">
+				
+				<p style="margin-top: 150px; background-color: rgba(0, 0, 0, 0.5); color: white; font-size: 1.5em; text-align: left; border-radius: 3px;">Details:<br>Find the perfect date for you and a hot Bod! Before you know it you'll be tyin the knot or at least making out hard-core!</p>
+				<div></div>
+			</div>
+		</div>
+
 	</div>
+	
+	<div class="col-md-6 col-md-offset-1" id="map_canvas">
 
-<div class="col-md-6 col-md-offset-1" id="map_canvas" ng-controller="homeController">
+	    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
 
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+	    	<ui-gmap-marker ng-repeat="date in dates" coords="date" idkey="date.id" click="onClick(date)">
 
-    	<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-   		</ui-gmap-marker>
+	   	
+	    	 <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+	            <div>{{date.id}}</div>
 
-    	<ui-gmap-markers models="dates" coords="'self'" icon="'icon'" click="onClick">
+	            </ui-gmap-window>
 
-    		 <ui-gmap-windows closeClick="closeClick()">
-                <div ng-non-bindable>{{id}}{{description}}{{price}}</div>
-            </ui-gmap-windows>
+	        </ui-gmap-marker>
 
-        </ui-gmap-markers>
-
-    	<!-- <markers models="dates" coords="'coords'" idKey="'id'"></markers>
-    	<marker ng-repeat="date in dates" coords="coords"></marker> -->
-        <!-- <ui-gmap-drawing-manager options="drawingManagerOptions" control="drawingManagerControl">
-        </ui-gmap-drawing-manager> -->
-
-    </ui-gmap-google-map>
+	    </ui-gmap-google-map>
     
+	</div>
 </div>
+<div class="container-fluid">
+	<div class="col-md-12" style="margin-top: 40px">
+	<div class="panel panel-default" ng-repeat="date in dates">
+						<div class="panel-heading">
+							<h4 class="panel-title text-center">{{date.id}}</h4>
+						</div>
+						<div class="panel-body text-center">
+							<div class="">{{date.description}}</div>
+							<div class="">{{date.price}}</div>
+						</div>
+					</div>
+	</div>
 </div>
 
 

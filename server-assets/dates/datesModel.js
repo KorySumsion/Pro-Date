@@ -7,7 +7,13 @@ var dates = new Schema({
 	longitude: {type: Number, required: true},
 	show: {type: Boolean, default: false},
 	description: {type: String},
-	price: {type: String}
+	price: {type: String},
+	indoor: {type: Boolean},
+	outdoor: {type: Boolean},
+	indoorActive: {type: Boolean},
+	outdoorActive: {type: Boolean},
+	indoorWalk: {type: Boolean},
+	outdoorWalk: {type: Boolean}
 });
 
 module.exports = mongoose.model('Dates', dates);

@@ -12,7 +12,7 @@
 
 .angular-google-map-container { 
 	height: 600px;
-	width: 750px;
+	width: 100%;
 	float: right;
 	margin-right: 17px;
 }
@@ -24,12 +24,44 @@ body {
 }
 .btn-lg {
 	border-radius: 25px;
+	box-shadow: 6px 7px 7px rgba(0,0,0,6);
+	width: 50%;
+	margin: 0 auto;
+}
+.panel {
+	border: none;
 }
 .panel-title {
-	font-size: 32px;
+	font-size: 40px;
+	color: black;
 }
+.btn-default {
+	border-color: #4e4f4e;
+}
+
 .btn-md {
 	border-radius: 25px;
 	width: 50%;
 	margin: 0 auto;
+}
+.panel-body {
+	padding: 5px;
+}
+.btn {
+	margin-bottom: 10px;
+	font-weight: 900;
+	background-color: #726f6f;
+}
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+    outline:0px !important;
+    -webkit-appearance:none;
 }
